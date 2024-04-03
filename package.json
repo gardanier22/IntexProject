@@ -1,0 +1,20 @@
+{
+  "name": "project2-403",
+  "version": "1.0.0",
+  "description": "Thanks for downloading this template!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Andrew Gardanier, Carolina Matte, Sara Oliveira, Stephanie Pesce",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "knex": "^3.0.1",
+    "pg": "^8.11.3"
+  }
+}

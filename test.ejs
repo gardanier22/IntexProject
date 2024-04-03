@@ -1,0 +1,259 @@
+<!-- // INTEX Social Media
+// Emma Bastian, Connor Humphrey, Johnny Fietkau, Lauren do Lago
+//Express package
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const favicon = require("serve-favicon");
+let path = require("path");
+const faviconPath = path.join(__dirname, "public");
+let app = express();
+//Set port to 3000 or AWS port
+const port = process.env.PORT || 3000;
+//Add ejs
+app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+//Connect css file
+app.use(express.static(__dirname + "/public"));
+app.use(favicon(path.join(faviconPath, "favicon.ico")));
+// Set up knex, will have to adjust database
+const knex = require("knex")({
+  client: "pg",
+  connection: {
+    host: process.env.RDS_HOSTNAME || "localhost",
+    user: process.env.RDS_USERNAME || "postgres",
+    password: process.env.RDS_PASSWORD || "postgres",
+    database: process.env.RDS_DB_NAME || "intex",
+    port: process.env.RDS_PORT || 5432,
+    ssl: process.env.DB_SSL ? { rejectUnauthorized: false } : false,
+  },
+});
+//Regular user routes
+app.get("/", (req, res) => {
+  res.render("landing");
+});
+app.get("/survey", (req, res) => {
+  res.render("surveyPage");
+});
+app.get("/dashboard", (req, res) => {
+  res.render("dashboardPage");
+}); -->
+<!-- //Admin routes
+app.get("/adminLogin", (req, res) => {
+  res.render("adminLogin");
+});
+app.post("/adminLogin", (req, res) => {
+  const { username, password } = req.body;
+  knex("admin")
+    .where({ username, password })
+    .first()
+    .then((user) => {
+      if (user) {
+        res.cookie("username", username, { maxAge: 9000000, httpOnly: true }); //creates a cookie 'username' and assigns the value of the username
+        res.cookie("Access", "Granted", { maxAge: 9000000, httpOnly: true }); //creates a cookie that sets access privileges to granted
+        // populate the data for all admin users and send it to the admin page
+        res.render("adminPage");
+      } else {
+        res.status(401).send("Invalid username or password");
+      }
+    })
+    .catch((error) => {
+      console.error("Error querying database:", error);
+      res.status(500).send("Internal Server Error");
+    });
+});
+app.get("/viewsurveys", (req, res) => {
+  //view survey results
+  if (req.cookies.access == "Granted") {
+    // Query the 'responses' table to fetch all data
+    knex
+      .select(
+        "surveyid",
+        "timestamp",
+        "age",
+        "gender",
+        "rel_status",
+        "occ_status",
+        "avg_time_social"
+      )
+      .from("responses")
+      .then((surveyData) => {
+        const pageuser = req.cookies.username;
+        // Render the 'rviewsurveys' EJS file and pass the adminData to it
+        res.render("viewsurveys", { surveyData, pageuser });
+      })
+      .catch((error) => {
+        console.error("Error querying database:", error);
+        res.status(500).send("Internal Server Error");
+      });
+  } else {
+    res.send("You do not have access to this page");
+  }
+});
+app.get("/searchresponse/:cat/:val", (req, res) => {
+  const { cat, val } = req.query;
+  if (req.cookies.access == "granted") {
+    // Query the 'responses' table to fetch all data
+    let query;
+    if (category == "surveyid" || category == "age") {
+      query = knex
+        .select(
+          //query integers
+          "surveyid",
+          "timestamp",
+          "age",
+          "gender",
+          "rel_status",
+          "occ_status",
+          "avg_time_social"
+        )
+        .where(cat, val);
+    } else {
+      query = knex
+        .select(
+          //query strings
+          "surveyid",
+          "timestamp",
+          "age",
+          "gender",
+          "rel_status",
+          "occ_status",
+          "avg_time_social"
+        )
+        .where("cat", "like", `%${val}%`);
+    }
+    query //the query was created by the if statement, execute that part then this is what you do with it.
+      .then((surveyData) => {
+        const pageuser = req.cookies.username;
+        // Render the 'viewsurveys' EJS file and pass the adminData to it
+        res.render("viewsurveys", { surveyData, pageuser });
+      })
+      .catch((error) => {
+        console.error("Error querying database:", error);
+        res.status(500).send("Internal Server Error");
+      });
+  } else {
+    res.send("You do not have access to this page");
+  }
+});
+// app.post("/submitSurvey", (req, res) => {
+//   knex("survey")
+//     .insert({
+//       country_name: req.body.country_name.toUpperCase(),
+//       popular_site: req.body.popular_site.toUpperCase(),
+//       capital: req.body.capital.toUpperCase(),
+//       population: req.body.population,
+//       visited: req.body.visited ? "Y" : "N",
+//       covid_level: req.body.covid_level.toUpperCase(),
+//     })
+//     .then((mycountry) => {
+//       res.redirect("/");
+//     });
+// });
+// READ FUNCTIONALITY (to be changed)
+// app.get("/", (req, res) => {
+//   knex
+//     .select("band_name", "lead_singer")
+//     .from("bands")
+//     .then((bands) => {
+//       res.render("displayBand", { mybands: bands });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json({ err });
+//     });
+// });
+//UPDATE FUNCTIONALITY (to be changed)
+// app.post("/editBand", (req, res) => {
+//   knex("bands").where("band_id", parseInt(req.body.bandID)).update({
+//       band_name: req.body.bandName,
+//       lead_singer: req.body.singer
+//   }).then(mybands => {
+//       res.redirect("/");
+//   });
+// });
+//CREATE FUNCTIONALITY (to be changed)
+// app.post("/addBand", (req, res) => {
+//   knex("bands").insert(req.body).then(mybands => {
+//       res.redirect("/");
+//   })
+// });
+//DELETE FUNCTIONALITY
+// app.post("/deleteBand/:id", (req, res) => {
+//   knex("bands").where("band_id", req.params.id).del().then(mybands => {
+//       res.redirect("/");
+//   }).catch(err => {
+//       console.log(err);
+//       res.status(500).json({err});
+//   })
+// });
+//Set up port/listening
+app.listen(port, () => console.log("Website started.")); -->
+
+
+
+<!-- 
+app.post('/submit_survey', async (req, res) => {
+  const [SurveyID] = await knex('SurveyResponses')
+  .returning('SurveyID')
+  .insert({
+    Date: getTodayDate(),
+    Time: getCurrentTime(),
+    Age: req.body.age,
+    Gender: req.body.gender,
+    RelationshipStatus: req.body.relationship,
+    OccupationStatus: req.body.occupation,
+    UsesSocialMedia: req.body.use_social_media,
+    AvgDailyHoursOnSocialMedia: req.body.hours_on_social_media,
+    RatingUsingSocialMediaWithoutPurpose: req.body.rating_9,
+    RatingGettingDistractedBySocialMediaWhenBusy: req.body.rating_10,
+    RatingRestlessWithoutSocialMedia: req.body.rating_11,
+    RatingEasilyDistracted: req.body.rating_12,
+    RatingBotheredByWorries: req.body.rating_13,
+    RatingDifficultyConcentrating: req.body.rating_14,
+    RatingComparesToOtherSuccessfulPeople: req.body.rating_15,
+    RatingFeelingsAboutComparisons: req.body.rating_16,
+    RatingSeekValidationFromSocialMedia: req.body.rating_17,
+    RatingDepression: req.body.rating_18,
+    RatingInterestFluctuation: req.body.rating_19,
+    RatingSleepIssues: req.body.rating_20,
+    Location: 'Provo'
+  });
+  
+  //redirect to the home page after submission
+  res.redirect('/');
+  //gather Organization types in an array
+  const checkboxValuesAff = [];
+  //loop through options on array values
+  for (let iCount = 1; iCount <= 5; iCount++)
+  {
+    const name = `aff${iCount}`;
+    if (req.body[name])
+    {
+      checkboxValuesAff.push(req.body[name]);
+    };
+  };
+  await Promise.all(checkboxValuesAff.map(async (OrganizationAffiliateTypeNum) => {
+    await knex('OrganizationEntry').insert({
+      SurveyID: SurveyID.SurveyID,
+      OrganizationAffiliateTypeNum: OrganizationAffiliateTypeNum
+    });
+  }));
+  //gather social media types in an array
+  const checkboxValuesSM = [];
+  //loop through options on array values
+  for (let iCount = 1; iCount <= 9; iCount++)
+  {
+    const name = `sm${iCount}`;
+    if (req.body[name])
+    {
+      checkboxValuesSM.push(req.body[name]);
+    };
+  };
+  await Promise.all(checkboxValuesSM.map(async (SocialMediaTypeNum) => {
+    await knex('SocialMediaEntry').insert({
+      SurveyID: SurveyID.SurveyID,
+      SocialMediaTypeNum: SocialMediaTypeNum
+    });
+  }));
+}); -->

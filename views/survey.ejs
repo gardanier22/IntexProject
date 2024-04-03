@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Provo City</title>
+
+    <!-- Favicons -->
+    <!-- Favicons -->
+  <link href="/img/brain.png" rel="icon">
+  <link href="/img/brain.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Vesperr
+    * Updated: Sep 18 2023 with Bootstrap v5.3.2
+    * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                <h1><a href="">Provo Digital Wellness</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+              </div>
+            <nav id="navbar" class="navbar">
+                <ul class="nav-list">
+                    <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                    <li><a class="nav-link scrollto" href="/dashboard">Dashboard</a></li>
+                    <li><a class="getstarted scrollto" href="login">Log In</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header>
+
+    <!-- End Header -->
+
+    <!-- ======= Form Section ======= -->
+    <section id="form" class="form" style="margin-top: 50px;">
+        <form action="/survey" method="post" class="">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 custom-border-form">
+                    <h1 class="text-center mb-4">Survey</h1>
+                    <h4 class="text-center mb-4">An assessment of the relationship between mental well-being and the utilization of social media platforms.</h4>
+                    
+                        <!-- Age -->
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="age"  name= "age" min="1">
+                        </div>
+                        <!--Gender-->
+                        <div class="mb-3">
+                           
+                            <label for="gender" class="form-label">Gender</label>
+                            <select class="form-select" id="gender"  name= "gender" aria-label="Select your gender">
+                                <option selected disabled>Select your gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Non-Binary">Non-Binary</option>
+                                <option value="Transgender">Transgender</option>
+                                <option value="Undefined">Undefined</option>
+                            </select>
+                            </div>
+                            <!--Relationship Status-->
+                            <div class="mb-3">
+                                <label for="relationship_status" class="form-label">Relationship Status</label>
+                                <select class="form-select" id="relationship_status" name="relationship_status" aria-label="Relationship Status">
+                                    <option selected disabled>Select your relationship status</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Single">Single</option>
+                                    <option value="In a Relationship">In a Relationship</option>
+                                    <option value="Divorced">Divorced</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="occupation_status" class="form-label">Occupation</label>
+                                <select class="form-select" id="occupation_status" name="occupation_status">
+                                    <option selected disabled>Select your Occupation status</option>
+                                    <option value="School Student">School Student</option>
+                                    <option value="University Student">University Student</option>
+                                    <option value="Salaried Worker">Salaried Worker</option>
+                                    <option value="Retired">Retired</option>
+                                </select>
+                            </div>
+                            <!-- Organization Affiliation -->
+                            <div class="mb-3">
+                                <label for="affiliations" id="affiliations" class="form-label">What type of organizations are you affiliated with?</label>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="aff1" value=1 id="universityCheckbox">
+                                    <label class="form-check-label" for="universityCheckbox">University</label>
+                                </div>    
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="aff2" value=2 id="privateCheckbox">
+                                    <label class="form-check-label" for="privateCheckbox">Private</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="aff3" value=3 id="schoolCheckbox">
+                                    <label class="form-check-label" for="schoolCheckbox">School</label> 
+                                </div>
+
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="aff4" value=4 id="companyCheckbox">
+                                    <label class="form-check-label" for="companyCheckbox">Company</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="aff5" value=5 id="govermentCheckbox">
+                                    <label class="form-check-label" for="governmentCheckbox">Goverment</label>
+                                </div>
+
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="aff6" value=6 id="naCheckbox">
+                                    <label class="form-check-label" for="naCheckbox">N/A</label>
+                                </div>
+
+                               
+                            </div>
+
+                            
+                            <style>
+                                .form-check {
+                                    margin-bottom: 10px; /* Adjust the value as needed */
+                                }
+                            
+                                .form-check-label {
+                                    margin-left: 5px; /* Adjust the value as needed */
+                                }
+                            </style>
+                             
+                            
+                            <!-- Do you use social media? -->
+                            <div class="mb-3">
+                                <label for="uses_social_media" class="form-label">Do you use social media?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="uses_social_media" name="uses_social_media"  value="Yes">
+                                    <label class="form-check-label" for="yesRadio">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="uses_social_media"  name="uses_social_media" value="No">
+                                    <label class="form-check-label" for="noRadio">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            
+
+
+                            <!-- What social media platforms do you commonly use? -->
+                            <div class="mb-3">
+                                <label for="platforms" id="platforms" class="form-label">What social media platforms do you commonly use?</label>
+                                
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=1 id="facebookCheckbox" name="plat1">
+                                    <label class="form-check-label" for="facebookCheckbox">Facebook</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=2 id="twitterCheckbox" name="plat2">
+                                    <label class="form-check-label" for="twitterCheckbox">Twitter</label>
+                                </div>
+                                
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=3 id="instagramCheckbox" name="plat3">
+                                    <label class="form-check-label" for="instagramCheckbox">Instagram</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=4 id="YouTubeCheckbox" name="plat4">
+                                    <label class="form-check-label" for="YouTubeCheckbox">YouTube</label>
+                                </div>
+                                
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=5 id="snapchatCheckbox" name="plat5">
+                                    <label class="form-check-label" for="snapchatCheckbox">Snapchat</label>
+                                </div> 
+                                
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=6 id="discordCheckbox" name="plat6">
+                                    <label class="form-check-label" for="discordCheckbox">Discord</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=7 id="RedditCheckbox" name="plat7">
+                                    <label class="form-check-label" for="RedditCheckbox">Reddit</label>
+                                </div>
+                                
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=8 id="pinterestCheckbox" name="plat8">
+                                    <label class="form-check-label" for="pinterestCheckbox">Pinterest</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=9 id="tiktokCheckbox" name="plat9">
+                                    <label class="form-check-label" for="tiktokCheckbox">TikTok</label>
+                                </div>
+                                
+                               
+                                
+                               
+
+                                
+                                
+                                
+                                
+                            </div>
+                            <div class="mb-3">
+                                <label for="avg_media_time_day" class="form-label">What is the average time you spend on social media every day?</label>
+                                
+                                <select class="form-select" id="avg_media_time_day" name="avg_media_time_day">
+                                    <option selected disabled>Select</option>
+                                    <option value="Less than an Hour">Less than an Hour</option>
+                                    <option value="Between 1 and 2 hours">Between 1 and 2 hours</option>
+                                    <option value="Between 2 and 3 hours">Between 2 and 3 hours</option>
+                                    <option value="Between 3 and 4 hours">Between 3 and 4 hours</option>
+                                    <option value="Between 4 and 5 hours">Between 4 and 5 hours</option>
+                                    <option value="More than 5 hours">More than 5 hours</option>
+                                </select>
+                            </div> 
+                            
+                            <!-- How often do you find yourself using social media without a specific purpose? -->
+                            <div class="mb-3">
+                                <label for="mindless_media_freq" class="form-label">How often do you find yourself using social media without a specific purpose?</label>
+                                
+                                <select class="form-select" id="mindless_media_freq" name="mindless_media_freq">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1 (Rarely)</option>
+                                    <option value=2>2 (Occasionally)</option>
+                                    <option value=3>3 (Sometimes)</option>
+                                    <option value=4>4 (Regularly)</option>
+                                    <option value=5>5 (Frequently)</option>
+                                </select>
+                            </div>
+                            <!-- How often do you get distracted by social media when you are busy doing something? -->
+                            <div class="mb-3">
+                                <label for="distracted_by_media_while_busy" class="form-label">How often do you get distracted by social media when you are busy doing something?</label>
+                                
+                                <select class="form-select" id="distracted_by_media_while_busy" name="distracted_by_media_while_busy">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1 (Rarely)</option>
+                                    <option value=2>2 (Occasionally)</option>
+                                    <option value=3>3 (Sometimes)</option>
+                                    <option value=4>4 (Regularly)</option>
+                                    <option value=5>5 (Frequently)</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Do you feel restless if you haven’t used social media in a while?-->
+                            <div class="mb-3">
+                                <label for="restlesss_without_media" class="form-label">Do you feel restless if you haven’t used social media in a while?</label>
+                                
+                                <select class="form-select" id="restlesss_without_media" name="restlesss_without_media">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1 (Rarely)</option>
+                                    <option value=2>2 (Occasionally)</option>
+                                    <option value=3>3 (Sometimes)</option>
+                                    <option value=4>4 (Regularly)</option>
+                                    <option value=5>5 (Frequently)</option>
+                                </select>
+                            </div>
+                            
+                            <!--How easily distracted are you?-->
+                            <div class="mb-3">
+                                <label for="distractibility" class="form-label">On the scale of 1 to 5, How easily distracted are you?</label>
+                                
+                                <select class="form-select" id="distractibility" name="distractibility">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1 </option>
+                                    <option value=2>2 </option>
+                                    <option value=3>3</option>
+                                    <option value=4>4</option>
+                                    <option value=5>5</option>
+                                </select>
+                            </div>
+
+
+                            <!--How much are you bothered by worries?-->
+                            <div class="mb-3">
+                                <label for="bothered_by_worries" class="form-label">On the scale of 1 to 5, How much are you bothered by worries?</label>
+                                
+                                <select class="form-select" id="bothered_by_worries" name="bothered_by_worries">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1</option>
+                                    <option value=2>2</option>
+                                    <option value=3>3 </option>
+                                    <option value=4>4 </option>
+                                    <option value=5>5 </option>
+                                </select>
+                            </div>
+                            
+                            <!--Do you find it difficult to concentrate on things?-->
+                            <div class="mb-3">
+                                <label for="difficulty_concentrating" class="form-label">Do you find it difficult to concentrate on things?</label>
+                                
+                                <select class="form-select" id="difficulty_concentrating" name="difficulty_concentrating">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1 (Rarely)</option>
+                                    <option value=2>2 (Occasionally)</option>
+                                    <option value=3>3 (Sometimes)</option>
+                                    <option value=4>4 (Regularly)</option>
+                                    <option value=5>5 (Frequently)</option>
+                                </select>
+                            </div>
+                            
+                            <!--How often do you compare yourself to other successful people through the use of social media?-->
+                            <div class="mb-3">
+                                <label for="personal_comparison_media" class="form-label">How often do you compare yourself to other successful people through the use of social media?</label>
+                                
+                                <select class="form-select" id="personal_comparison_media" name="personal_comparison_media">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1 (Rarely)</option>
+                                    <option value=2>2 (Occasionally)</option>
+                                    <option value=3>3 (Sometimes)</option>
+                                    <option value=4>4 (Regularly)</option>
+                                    <option value=5>5 (Frequently)</option>
+                                </select>
+                            </div>
+                           
+                           
+                            <!--Following the previous question, how do you feel about these comparisons, generally speaking?-->
+                            <div class="mb-3">
+                                <label for="feelings_about_comparisons" class="form-label">Following the previous question, how do you feel about these comparisons, generally speaking?</label>
+                                
+                                <select class="form-select" id="feelings_about_comparisons" name="feelings_about_comparisons">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1 </option>
+                                    <option value=2>2 </option>
+                                    <option value=3>3 </option>
+                                    <option value=4>4 </option>
+                                    <option value=5>5 </option>
+                                </select>
+                            </div>
+                           
+                            <!--How often do you look to seek validation from features of social media?-->
+                            <div class="mb-3">
+                                <label for="seek_validation_media" class="form-label">How often do you look to seek validation from features of social media?</label>
+                                
+                                <select class="form-select" id="seek_validation_media" name="seek_validation_media">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1 (Rarely)</option>
+                                    <option value=2>2 (Occasionally)</option>
+                                    <option value=3>3 (Sometimes)</option>
+                                    <option value=4>4 (Regularly)</option>
+                                    <option value=5>5 (Frequently)</option>
+                                </select>
+                            </div>
+                            
+                            <!--How often do you feel depressed or down?-->
+                            <div class="mb-3">
+                                <label for="frequency_depressed" class="form-label">How often do you feel depressed or down?</label>
+                                
+                                <select class="form-select" id="frequency_depressed" name="frequency_depressed">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1 (Rarely)</option>
+                                    <option value=2>2 (Occasionally)</option>
+                                    <option value=3>3 (Sometimes)</option>
+                                    <option value=4>4 (Regularly)</option>
+                                    <option value=5>5 (Frequently)</option>
+                                </select>
+                            </div>
+                            
+                            <!--How frequently does your interest in daily activities fluctuate?-->
+                            <div class="mb-3">
+                                <label for="interest_fluctuation_activities" class="form-label">How frequently does your interest in daily activities fluctuate?</label>
+                                
+                                <select class="form-select" id="interest_fluctuation_activities" name="interest_fluctuation_activities">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1 (Rarely)</option>
+                                    <option value=2>2 (Occasionally)</option>
+                                    <option value=3>3 (Sometimes)</option>
+                                    <option value=4>4 (Regularly)</option>
+                                    <option value=5>5 (Frequently)</option>
+                                </select>
+                            </div>
+
+                            <!--How often do you face issues regarding sleep?-->
+                            <div class="mb-3">
+                                <label for="sleep_issues" class="form-label">How often do you face issues regarding sleep?</label>
+                                
+                                <select class="form-select" id="sleep_issues" name="sleep_issues">
+                                    <option selected disabled>Select</option>
+                                    <option value=1>1 (Rarely)</option>
+                                    <option value=2>2 (Occasionally)</option>
+                                    <option value=3>3 (Sometimes)</option>
+                                    <option value=4>4 (Regularly)</option>
+                                    <option value=5>5 (Frequently)</option>
+                                </select>
+                            </div>
+                            <div style="text-align: center;">
+                                <button type="submit" style="width:50%; " class="btn btn-secondary">Submit</button>
+                            </div>
+                        </div>
+                           
+                        </form>
+                        </div>
+                      
+                </div>
+            </div>
+        </div>
+    </section><!-- End Form Section -->
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+        <div class="container">
+          <div class="row d-flex align-items-center">
+            <div class="text-center">
+              <div class="copyright">
+                Provo Digital Wellness
+              </div>
+              <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer><!-- End Footer -->
+
+
+
+
+    
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Add this script to display an alert after form submission -->
+
+
+</body>
+
+</html>
+
+

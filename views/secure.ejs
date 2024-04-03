@@ -1,0 +1,103 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Favicons -->
+  <link href="/img/brain.png" rel="icon">
+  <link href="/img/brain.png" rel="apple-touch-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"/> 
+  <script src="path_to/node_modules/tablefilter/dist/tablefilter/tablefilter.js"></script>
+
+  <title>Records</title>
+</head>
+<body>
+  <label><b>Records</b></label>
+  <br><br>
+
+
+
+</div>
+<br><br>
+  <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
+    <thead style="background-color: rgb(43, 110, 226); color: white;">
+      <tr>
+        <th style="text-align: left;">age</th>
+        <th style="text-align: left;">relationship_status</th>
+        <th style="text-align: left;">occupation_status</th>
+        <th style="text-align: left;">origin</th>
+        <th style="text-align: left;">timestamp</th>
+        <th style="text-align: left;">avg_media_time_day</th>
+        <th style="text-align: left;">uses_social_media</th>
+        <th style="text-align: left;">mindless_media_freq</th>
+        <th style="text-align: left;">distracted_by_media_while_busy</th>
+        <th style="text-align: left;">restlesss_without_media</th>
+        <th style="text-align: left;">distractibility</th>
+        <th style="text-align: left;">bothered_by_worries</th>
+        <th style="text-align: left;">difficulty_concentrating</th>
+        <th style="text-align: left;">personal_comparison_media</th>
+        <th style="text-align: left;">feelings_about_comparisons</th>
+        <th style="text-align: left;">seek_validation_media</th>
+        <th style="text-align: left;">frequency_depressed</th>
+        <th style="text-align: left;">interest_fluctuation_activities</th>
+        <th style="text-align: left;">sleep_issues</th>
+        <th style="text-align: left;">participant_id</th>
+        <th style="text-align: left;">gender</th>
+
+
+      </tr>
+    </thead>
+    <tbody style="font-family: Arial; font-size: 9pt;">
+      <% for (let iCount = 0; iCount < Participants.length; iCount++) { %>
+        <tr>
+          <td><%= Participants[iCount].age %></td> 
+          <td><%= Participants[iCount].relationship_status %></td>
+          <td><%= Participants[iCount].occupation_status %></td>
+          <td><%= Participants[iCount].origin %></td>
+          <td><%= Participants[iCount].timestamp %></td>
+          <td><%= Participants[iCount].avg_media_time_day %></td>
+          <td><%= Participants[iCount].uses_social_media %></td>
+          <td><%= Participants[iCount].mindless_media_freq %></td>
+          <td><%= Participants[iCount].distracted_by_media_while_busy %></td>
+          <td><%= Participants[iCount].restlesss_without_media %></td>
+          <td><%= Participants[iCount].distractibility %></td>
+          <td><%= Participants[iCount].bothered_by_worries %></td>
+          <td><%= Participants[iCount].difficulty_concentrating %></td>
+          <td><%= Participants[iCount].personal_comparison_media %></td>
+          <td><%= Participants[iCount].feelings_about_comparisons %></td>
+          <td><%= Participants[iCount].seek_validation_media %></td>
+          <td><%= Participants[iCount].frequency_depressed %></td>
+          <td><%= Participants[iCount].interest_fluctuation_activities %></td>
+          <td><%= Participants[iCount].sleep_issues %></td>
+          <td><%= Participants[iCount].participant_id %></td>
+          <td><%= Participants[iCount].gender %></td>
+
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="text-center">
+          <div class="copyright">
+            Provo Digital Wellness
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  
+</body>
+</html>
